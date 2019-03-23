@@ -2,8 +2,8 @@ package ru.job4j.calculate;
 /**
 * Class for calculate task.
 *
-* @author Anton Narayan 
-* @version $Id$
+* @author Narayan Anton 
+* @version 0.1
 * @since 0.1
 */
 public class Calculate {
