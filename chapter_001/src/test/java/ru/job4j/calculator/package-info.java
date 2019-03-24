@@ -1,5 +1,5 @@
 /**
-* Package for calculatorTest task.
+* Package for CalculatorTest task.
 *
 * @author Anton Narayan 
 * @version 0.1
