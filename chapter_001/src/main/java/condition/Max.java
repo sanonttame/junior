@@ -1,8 +1,8 @@
 package condition;
 /**
- * Максимальное значение 2х чисел..
+ * Максимальное значение 3х чисел..
  * @author Anton Narayan
- * @version 0.1
+ * @version 0.2
  * @since 0.1
  */
 public class Max {
@@ -11,8 +11,12 @@ public class Max {
         return first > second ? first : second;
     }
     public int max(int first, int second, int third) {
-
-    return ((first > second) && (first > third)) ? first : (((second > first) && (second > third)) ? second : third);
+        if (first > second && first > third){
+            return first;
+        }
+        else if (first < second && second > third){
+            return second;
+        }
+        else return third;
     }
 }
-
