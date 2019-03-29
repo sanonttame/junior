@@ -25,7 +25,7 @@ public class MaxTest {
         assertThat(result, is(3));
     }
     @Test
-    public void whenThirdMoreThatFirstAndSecon(){
+    public void whenThirdMoreThatFirstAndSecond(){
         Max one = new Max();
         int result = one.max(1, 2, 3);
         assertThat(result, is(3));

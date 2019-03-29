@@ -23,7 +23,7 @@ public class Converter {
      * @param value Евро.
      * @return Рубли.
      */
-    public int EuroTuRub(int value) {
+    public int EuroToRub(int value) {
         return value * 70;
     }
 
@@ -32,7 +32,7 @@ public class Converter {
      * @param value Доллары.
      * @return Рубли
      */
-    public int DollartoRub(int value) {
+    public int DollarToRub(int value) {
         return value * 60;
     }
 }

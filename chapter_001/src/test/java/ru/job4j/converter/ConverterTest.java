@@ -21,14 +21,14 @@ public class ConverterTest {
     @Test
     public void whenDollar1To60Ruble() {
         Converter converter = new Converter();
-        int result = converter.DollartoRub(1);
+        int result = converter.DollarToRub(1);
         assertThat(result, is(60));
     }
 
     @Test
     public void whenEuro1To70Ruble() {
         Converter converter = new Converter();
-        int result = converter.EuroTuRub(1);
+        int result = converter.EuroToRub(1);
         assertThat(result, is(70));
     }
 }
