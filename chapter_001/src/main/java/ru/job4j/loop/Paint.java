@@ -10,7 +10,8 @@ public class Paint {
      * метод строит пирамиду по значениям.
      *
      * @param height высота пирамиды.
-     * @return объект Доска
+     *@return объект Доска
+     */
      public String rightTrl(int height) {
         StringBuilder screen = new StringBuilder();
         int width = height;
@@ -38,7 +39,7 @@ public class Paint {
             screen.append(System.lineSeparator());
         }
         return screen.toString();
-    }*/
+    }
     public String Trl(int height) {
         StringBuilder screen = new StringBuilder();
         int width = 2* height - 1;

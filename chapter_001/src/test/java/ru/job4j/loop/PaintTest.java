@@ -8,7 +8,7 @@ import static org.junit.Assert.assertThat;
  * Класс тестирующий пирамиду.
  */
 public class PaintTest {
-   /**
+   @Test
     public void rightTrl() {
         Paint paint = new Paint();
         String result = paint.rightTrl(4);
@@ -24,7 +24,7 @@ public class PaintTest {
         );
     }
 
-
+@Test
     public void leftTrl() {
         Paint paint = new Paint();
         String result = paint.leftTrl(4);
@@ -39,7 +39,7 @@ public class PaintTest {
                 )
         );
     }
-    */
+
     @Test
     public void Trl() {
         Paint paint = new Paint();
