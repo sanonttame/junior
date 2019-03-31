@@ -7,8 +7,6 @@ package ru.job4j.array;
  */
 public class Square {
     /**
-     *
-     *
      * @param bound количество возведённых в квадрат числе.
      *@return объект массив
      */
