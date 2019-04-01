@@ -21,8 +21,7 @@ public class FindLoopTest {
         assertThat(expect, is(rsl));
 
     }
-<<<<<<< HEAD
-    @Test
+   @Test
     public void WhenArrayHas4Than(){
         FindLoop find = new FindLoop();
         int[] arr = new int[]{3, 5, 10};
@@ -32,6 +31,4 @@ public class FindLoopTest {
         assertThat(expect, is(rsl));
 
     }
-=======
->>>>>>> origin/master
 }
