@@ -13,8 +13,11 @@ public class Check {
     public boolean mono(boolean[] array){
          boolean result = false;
          for (int index = 0; index < array.length - 1;) {
-             if (array[index] == array[index + 1]) result = true;
-             else result = false;
+             if (array[index] != array[index + 1]) {
+                 result = false;
+                 break;
+             }
+             else result = true;
              break;
          }
         return result;
