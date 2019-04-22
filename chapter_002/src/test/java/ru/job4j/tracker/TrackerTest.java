@@ -6,7 +6,12 @@ import ru.job4.tracker.Tracker;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
-
+/**
+ * Тест класса Tracker.
+ * @author Anton Narayan
+ * @version 0.1
+ * @since 0.1
+ */
 public class TrackerTest {
     @Test
     public void whenAddNewItemThenTrackerHasSameItem() {

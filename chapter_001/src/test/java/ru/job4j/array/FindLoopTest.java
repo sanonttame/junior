@@ -12,7 +12,7 @@ import static org.junit.Assert.assertThat;
  */
 public class FindLoopTest {
     @Test
-    public void WhenArrayHas5Than(){
+    public void whenArrayHas5Than() {
         FindLoop find = new FindLoop();
         int[] arr = new int[]{3, 5, 10};
         int elm = 5;
@@ -22,7 +22,7 @@ public class FindLoopTest {
 
     }
    @Test
-    public void WhenArrayHas4Than(){
+    public void whenArrayHas4Than() {
         FindLoop find = new FindLoop();
         int[] arr = new int[]{3, 5, 10};
         int elm = 4;

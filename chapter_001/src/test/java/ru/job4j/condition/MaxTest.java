@@ -13,19 +13,19 @@ import static org.junit.Assert.assertThat;
  */
 public class MaxTest {
     @Test
-    public void whenFirstMoreThanSecond(){
+    public void whenFirstMoreThanSecond() {
         Max one = new Max();
         int result = one.max(3, 2);
         assertThat(result, is(3));
     }
     @Test
-    public void whenSecondMoreThatFirst(){
+    public void whenSecondMoreThatFirst() {
         Max one = new Max();
-        int result = one.max(1, 3,2);
+        int result = one.max(1, 3, 2);
         assertThat(result, is(3));
     }
     @Test
-    public void whenThirdMoreThatFirstAndSecond(){
+    public void whenThirdMoreThatFirstAndSecond() {
         Max one = new Max();
         int result = one.max(1, 2, 3);
         assertThat(result, is(3));

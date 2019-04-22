@@ -11,22 +11,22 @@ import static org.junit.Assert.assertThat;
 public class DummyBotTest {
     @Test
     public void whenGreatBot() {
-        DummyBot Don = new DummyBot();
+        DummyBot don = new DummyBot();
         assertThat(
-                Don.answer("Привет, Бот."), is("Привет, кожанный умник."));
+                don.answer("Привет, Бот."), is("Привет, кожанный умник."));
     }
 
     @Test
     public void whenByeBot() {
-        DummyBot Don = new DummyBot();
+        DummyBot don = new DummyBot();
         assertThat(
-                Don.answer("Пока, Бот."), is("Пока, кожанный умник."));
+                don.answer("Пока, Бот."), is("Пока, кожанный умник."));
     }
 
     @Test
     public void whenStupidBot() {
-        DummyBot Don = new DummyBot();
+        DummyBot don = new DummyBot();
         assertThat(
-                Don.answer("Как тебя зовут?"), is("Это ставит меня в тупик. Спроси что-нибудь полегче, парень."));
+                don.answer("Как тебя зовут?"), is("Это ставит меня в тупик. Спроси что-нибудь полегче, парень."));
     }
 }

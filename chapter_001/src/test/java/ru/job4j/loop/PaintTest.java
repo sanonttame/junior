@@ -41,9 +41,9 @@ public class PaintTest {
     }
 
     @Test
-    public void Trl() {
+    public void trl() {
         Paint paint = new Paint();
-        String result = paint.Trl(4);
+        String result = paint.triangle(4);
         System.out.println(result);
         assertThat(result, is(
                 new StringJoiner(System.lineSeparator(), "", System.lineSeparator())

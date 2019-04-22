@@ -12,12 +12,11 @@ public class DummyBot {
      * @param question Вопрос от клиента.
      * @return Ответ.
      */
-    public String answer(String question){
+    public String answer(String question) {
         String rsl = "Это ставит меня в тупик. Спроси что-нибудь полегче, парень.";
-        if("Привет, Бот.".equals(question)){
+        if ("Привет, Бот.".equals(question)) {
             rsl = "Привет, кожанный умник.";
-        }
-        else if("Пока, Бот.".equals(question)){
+        } else if ("Пока, Бот.".equals(question)) {
             rsl = "Пока, кожанный умник.";
         }
     return rsl;

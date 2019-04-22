@@ -9,12 +9,12 @@ import static org.junit.Assert.assertThat;
  * @version 0.1
  * @since 0.1
  */
-public class CounterTest{
+public class CounterTest {
     @Test
-    public void whenSumEvenNumbersFromOneToTenThenThirty(){
+    public void whenSumEvenNumbersFromOneToTenThenThirty() {
         Counter one = new Counter();
-        int result = one.add(1,10);
-        assertThat(result,is(30));
+        int result = one.add(1, 10);
+        assertThat(result, is(30));
     }
 
 }

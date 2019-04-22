@@ -10,9 +10,9 @@ public class Square {
      * @param bound количество возведённых в квадрат числе.
      *@return объект массив
      */
-    public int[] calculate(int bound){
+    public int[] calculate(int bound) {
         int[] result =  new int[bound];
-        for (int index = 0; index < result.length; index++){
+        for (int index = 0; index < result.length; index++) {
             result[index] = (int) Math.pow(index + 1, 2);
         }
         return result;

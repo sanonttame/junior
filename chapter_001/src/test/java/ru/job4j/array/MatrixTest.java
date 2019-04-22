@@ -11,10 +11,10 @@ import static org.junit.Assert.assertThat;
  */
 public class MatrixTest {
     @Test
-    public void ThreeByThreeArray(){
+    public void threeByThreeArray() {
         Matrix array = new Matrix();
         int[][] rst = array.multiple(3);
-        int[][] expect = {{1, 2 , 3},{2, 4, 6},{3, 6, 9}};
-        assertThat(rst,is(expect));
+        int[][] expect = {{1, 2, 3}, {2, 4, 6}, {3, 6, 9}};
+        assertThat(rst, is(expect));
     }
 }

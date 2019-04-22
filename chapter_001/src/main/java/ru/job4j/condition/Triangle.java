@@ -34,7 +34,7 @@ public class Triangle {
          * @param c расстояние между точками b c
          * @return Перимент.
          */
-        private double period(double a, double b, double c){
+        private double period(double a, double b, double c) {
             return (a + b + c) / 2;
         }
 
@@ -71,8 +71,7 @@ public class Triangle {
          * @param c Длина от точки b c.
          * @return да или нет
          */
-        private boolean exist( double a, double c, double b){
-
+        private boolean exist(double a, double c, double b) {
             return a + b > c && b + c > a && a + c > b;
         }
     }

@@ -44,7 +44,7 @@ public class Paint {
         );
     }
 
-    public String Trl(int height) {
+    public String triangle(int height) {
         return this.loopBy(
                 height,
                 2 * height - 1,

@@ -16,7 +16,7 @@ public class Board {
         StringBuilder screen = new StringBuilder();
         String ln = System.lineSeparator();
         for (int i = 0; i < height; i++) {
-            for (int j = 0; j < width; j++ ) {
+            for (int j = 0; j < width; j++) {
                 if ((i + j) % 2 != 0) {
                     screen.append(" ");
                 } else {

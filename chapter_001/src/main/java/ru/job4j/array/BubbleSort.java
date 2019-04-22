@@ -7,10 +7,10 @@ package ru.job4j.array;
  * @since 0.1
  */
 public class BubbleSort {
-    public int[] sort(int[] array){
+    public int[] sort(int[] array) {
         int temp;
         boolean sort = true;
-        while(sort) {
+        while (sort) {
             sort = false;
             //внешний цикл, перебирает индексы массива с конца.
             for (int index = array.length - 1; index != 0; index--) {
