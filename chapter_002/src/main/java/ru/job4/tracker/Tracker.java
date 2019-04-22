@@ -81,20 +81,17 @@ public class Tracker {
         boolean result = false;
         for (int i = 0; i != this.position; i++) {
             if (this.items[i] != null && this.items[i].getId().equals(id)) {
-                    System.arraycopy(items, i + 1, items, i, this.position - i - 1);
-                    result = true;
-                    break;
+                this.items[i] = null;
+                System.arraycopy(items, i + 1, items, i, this.position - i - 1);
+                this.position--;
+                result = true;
             }
         }
 		return result;
     }
 
     public Item[] findAll() {
-		Item[] result = new Item[this.position];
-		for (int index = 0; index != this.position; index++) {
-		result[index] = this.items[index];
-		}
-		return result;	
+		return Arrays.copyOf(this.items, this.position);
 
     }
 
