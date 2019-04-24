@@ -74,16 +74,15 @@ public class StartUI {
             if (ADD.equals(answer)) {
                 this.createItem();
             } else if (FINDALL.equals(answer)) {
-                System.out.println(this.findAll());
+                this.findAll();
             } else if (EDIT.equals(answer)) {
                 this.replaceItem();
             } else if (DELT.equals(answer)) {
                 this.deleteItem();
             } else if (FINDID.equals(answer)) {
-                System.out.println("Введите идентификатор заявки :");
-                System.out.println(this.tracker.findById(this.input.ask("Введите идентификатор заявки : ")).getName());
+                this.findById();
             } else if (FINDNM.equals(answer)) {
-                System.out.println(this.findByName());
+                this.findByName();
             } else if (EXIT.equals(answer)) {
                 exit = true;
             }
@@ -122,13 +121,17 @@ public class StartUI {
      * Поиск всех заявок.
      * @return значения массива в виде строки
      */
-    private String findAll() {
+    private void findById(){
+     System.out.println("Введите идентификатор заявки :");
+     System.out.println(this.tracker.findById(this.input.ask("Введите идентификатор заявки : ")).getName());
+    }
+    private void findAll() {
         String[] array = new String[tracker.findAll().length];
         for (int i = 0; i != tracker.findAll().length; i++) {
             array[i] = tracker.findAll()[i].getName();
         }
         System.out.println("------------ Все заявки : --------------");
-        return Arrays.toString(array);
+        System.out.println(Arrays.toString(array));
     }
     /**
      * Метод реализует удаление заявки.
@@ -143,14 +146,14 @@ public class StartUI {
      * Поиск по имени.
      * @return значения массива в виде строки
      */
-    private String findByName() {
+    private void findByName() {
         System.out.println("Введите имя заявки : ");
         String name = this.input.ask("Name");
         String[] array = new String[this.tracker.findByName(name).length];
         for (int i = 0; i != array.length; i++) {
             array[i] = tracker.findByName(name)[i].getName();
         }
-        return Arrays.toString(array);
+        System.out.println(Arrays.toString(array));
     }
     /**
      * Метод реализует консольное меню.
