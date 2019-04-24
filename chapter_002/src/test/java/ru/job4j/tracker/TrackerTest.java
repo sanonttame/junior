@@ -43,10 +43,12 @@ public class TrackerTest {
         Tracker tracker = new Tracker();
         Item itemOne = new Item("test1", "testDescription", 123L);
         Item itemTwo = new Item("test2", "testDescription", 1234L);
+        Item itemThree = new Item("test1", "testDescription", 12345L);
         tracker.add(itemOne);
         tracker.add(itemTwo);
-        tracker.findByName("test2");
-        assertThat(tracker.findById(itemTwo.getId()).getName(),is("test2"));
+        tracker.add(itemThree);
+        Item[] result = {itemOne, itemThree};
+        assertThat(tracker.findByName("test1"), is(result));
     }
     @Test
     public void whenDeleteItem() {
@@ -61,7 +63,7 @@ public class TrackerTest {
         result.add(itemOne);
         result.add(itemThree);
         tracker.delete(itemTwo.getId());
-        assertThat(tracker.findAll(),is(result.findAll()));
+        assertThat(tracker.findAll(), is(result.findAll()));
     }
 }
 
