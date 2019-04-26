@@ -1,4 +1,4 @@
-package ru.job4.tracker;
+package ru.job4j.tracker;
 
 import java.lang.reflect.Field;
 import java.util.Arrays;
@@ -109,8 +109,8 @@ public class StartUI {
         String name = this.input.ask("Новое имя заявки : ");
         String desc = this.input.ask("Введите описание заявки : ");
         Item item = new Item(name, desc, System.currentTimeMillis());
-        if (this.tracker.replace(id, item) == true) {
-            System.out.println("------ Заявка с Id : " + item.getId() + "успешно изменена -----------");
+        if (this.tracker.replace(id, item)) {
+            System.out.println("------ Заявка с Id : " + item.getId() + " успешно изменена -----------");
         } else {
             System.out.println("Заявки с таким id нет.");
         }
@@ -119,8 +119,13 @@ public class StartUI {
      * Поиск всех заявок.
      * @return значения массива в виде строки
      */
-    private void findById(){
-     System.out.println(this.tracker.findById(this.input.ask("Введите идентификатор заявки : ")).getName());
+    private void findById() {
+        System.out.println("------------ Поиск заявки по ID --------------");
+        String id = this.input.ask("Введите идентификатор заявки : ");
+        Item item = tracker.findById(id);
+        if (item == null) {
+            System.out.println("Такой заявки не существует.");
+        } else System.out.println(item.getName());
     }
     private void findAll() {
         Item[] array = tracker.findAll();
@@ -134,7 +139,7 @@ public class StartUI {
      */
     private void deleteItem() {
         String id = this.input.ask("Идентификатор заявки : ");
-        if (this.tracker.delete(id) == true) {
+        if (this.tracker.delete(id)) {
             System.out.println("Заявка удалена!");
         }
         else {
@@ -146,6 +151,7 @@ public class StartUI {
      * @return значения массива в виде строки
      */
     private void findByName() {
+        System.out.println("------------ Поиск заявки по имени --------------");
         String name = this.input.ask("Введите имя заявки : ");
         Item[] array = tracker.findByName(name);
         for (int i = 0; i != array.length; i++) {
