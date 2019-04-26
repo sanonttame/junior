@@ -94,9 +94,7 @@ public class StartUI {
      */
     private void createItem() {
         System.out.println("------------ Добавление новой заявки --------------");
-        System.out.println("Введите имя заявки :");
         String name = this.input.ask("Введите имя заявки :");
-        System.out.println("Введите описание заявки :");
         String desc = this.input.ask("Введите описание заявки :");
         Item item = new Item(name, desc, System.currentTimeMillis());
         this.tracker.add(item);
@@ -107,53 +105,52 @@ public class StartUI {
      */
     private void replaceItem() {
         System.out.println("------------ Редактирование заявки --------------");
-        System.out.println("Введите идентификатор заявки, которую хотите изменить : ");
         String id = this.input.ask("Введите идентификатор заявки, которую хотите изменить : ");
-        System.out.println("Новое имя заявки : ");
         String name = this.input.ask("Новое имя заявки : ");
-        System.out.println("Введите описание заявки : ");
         String desc = this.input.ask("Введите описание заявки : ");
         Item item = new Item(name, desc, System.currentTimeMillis());
-        this.tracker.replace(id, item);
-        System.out.println("------ Заявка с Id : " + item.getId() + "успешно изменена -----------");
+        if (this.tracker.replace(id, item) == true) {
+            System.out.println("------ Заявка с Id : " + item.getId() + "успешно изменена -----------");
+        } else {
+            System.out.println("Заявки с таким id нет.");
+        }
     }
     /**
      * Поиск всех заявок.
      * @return значения массива в виде строки
      */
     private void findById(){
-     System.out.println("Введите идентификатор заявки :");
      System.out.println(this.tracker.findById(this.input.ask("Введите идентификатор заявки : ")).getName());
     }
     private void findAll() {
-        String[] array = new String[tracker.findAll().length];
-        for (int i = 0; i != tracker.findAll().length; i++) {
-            array[i] = tracker.findAll()[i].getName();
-        }
+        Item[] array = tracker.findAll();
         System.out.println("------------ Все заявки : --------------");
-        System.out.println(Arrays.toString(array));
+        for (int i = 0; i != array.length; i++) {
+            System.out.println(array[i].getName());
+        }
     }
     /**
      * Метод реализует удаление заявки.
      */
     private void deleteItem() {
-        System.out.println("Введите идентификатор заявки, от которой хотите избавиться :");
-        String id = this.input.ask("Идентификатор заявки");
-        this.tracker.delete(id);
-        System.out.println("Заявка удалена!");
+        String id = this.input.ask("Идентификатор заявки : ");
+        if (this.tracker.delete(id) == true) {
+            System.out.println("Заявка удалена!");
+        }
+        else {
+            System.out.println("Заявки с таким id не существует.");
+        }
     }
     /**
      * Поиск по имени.
      * @return значения массива в виде строки
      */
     private void findByName() {
-        System.out.println("Введите имя заявки : ");
-        String name = this.input.ask("Name");
-        String[] array = new String[this.tracker.findByName(name).length];
+        String name = this.input.ask("Введите имя заявки : ");
+        Item[] array = tracker.findByName(name);
         for (int i = 0; i != array.length; i++) {
-            array[i] = tracker.findByName(name)[i].getName();
+            System.out.println(array[i].getName());
         }
-        System.out.println(Arrays.toString(array));
     }
     /**
      * Метод реализует консольное меню.
@@ -167,9 +164,7 @@ public class StartUI {
                         "3. Удалить заявку.\n" +
                         "4. Найти заявку по идентификатору.\n" +
                         "5. Найти заявку по имени.\n" +
-                        "6. Выйти.\n" +
-                        "\n" +
-                        "Действие : ");
+                        "6. Выйти.\n");
     }
 
     /**
