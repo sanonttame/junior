@@ -125,7 +125,9 @@ public class StartUI {
         Item item = tracker.findById(id);
         if (item == null) {
             System.out.println("Такой заявки не существует.");
-        } else System.out.println(item.getName());
+        } else {
+            System.out.println(item.getName());
+        }
     }
     private void findAll() {
         Item[] array = tracker.findAll();
@@ -141,8 +143,7 @@ public class StartUI {
         String id = this.input.ask("Идентификатор заявки : ");
         if (this.tracker.delete(id)) {
             System.out.println("Заявка удалена!");
-        }
-        else {
+        } else {
             System.out.println("Заявки с таким id не существует.");
         }
     }
@@ -164,13 +165,7 @@ public class StartUI {
     private void showMenu() {
         System.out.println("Меню.");
         System.out.println(
-                "0. Добавить новую заявку.\n" +
-                        "1. Показать все заявки.\n" +
-                        "2. Редактировать заявку.\n" +
-                        "3. Удалить заявку.\n" +
-                        "4. Найти заявку по идентификатору.\n" +
-                        "5. Найти заявку по имени.\n" +
-                        "6. Выйти.\n");
+                "0. Добавить новую заявку.\n" + "1. Показать все заявки.\n" + "2. Редактировать заявку.\n" + "3. Удалить заявку.\n" + "4. Найти заявку по идентификатору.\n" + "5. Найти заявку по имени.\n" + "6. Выйти.\n");
     }
 
     /**
@@ -178,6 +173,6 @@ public class StartUI {
      * @param args
      */
     public static void main(String[] args) {
-        new StartUI(new ConsoleInput(), new Tracker()).init();
+        new StartUI(new StubInput(new String[] {""}), new Tracker()).init();
     }
 }
