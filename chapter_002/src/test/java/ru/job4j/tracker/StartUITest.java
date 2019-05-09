@@ -1,5 +1,12 @@
 package ru.job4j.tracker;
+
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 /**
@@ -9,29 +16,40 @@ import static org.junit.Assert.assertThat;
  * @since 0.1
  */
 public class StartUITest {
+    private Tracker tracker = new Tracker();
+    private final PrintStream stout = System.out;
+    private final ByteArrayOutputStream out = new ByteArrayOutputStream();
+    @Before
+    public void BeforeTest() {
+        {
+            tracker.add(new Item("testOne", "first",System.currentTimeMillis()));
+            tracker.add(new Item("testTwo", "second",System.currentTimeMillis()));
+            tracker.add(new Item("testThird", "third",System.currentTimeMillis()));
+            System.setOut(new PrintStream(this.out));
+        }
+
+    }
+    @After
+    public void AfterTest() {
+        System.setOut(new PrintStream(this.stout));
+    }
     @Test
     public void whenUserAddItemThenTrackerHasNewItemWithSameName() {
-        Tracker tracker = new Tracker();
         Input input = new StubInput(new String[]{"0", "test name", "desc", "6"});
-        new StartUI(input, tracker).init();
-        assertThat(tracker.findAll()[0].getName(), is("test name"));
+        new StartUI(input, this.tracker).init();
+        assertThat(this.tracker.findAll()[3].getName(), is("test name"));
     }
 
     @Test
     public void whenUpdateThenTrackerHasUpdatedValue() {
-        Tracker tracker = new Tracker();
-        Item item = tracker.add(new Item("test name", "desc", System.currentTimeMillis()));
-        Input input = new StubInput(new String[]{"2", item.getId(), "test replace", "заменили заявку", "6"});
-        new StartUI(input, tracker).init();
-        assertThat(tracker.findById(item.getId()).getName(), is("test replace"));
+        Input input = new StubInput(new String[]{"2", tracker.findAll()[2].getId(), "test replace", "заменили заявку", "6"});
+        new StartUI(input, this.tracker).init();
+        assertThat(tracker.findAll()[2].getName(), is("test replace"));
     }
     @Test
     public void whenDeleteItem() {
-        Tracker tracker = new Tracker();
-        Item item = tracker.add(new Item("test name", "desc", System.currentTimeMillis()));
-        Item item2 = tracker.add(new Item("test2", "desc", System.currentTimeMillis()));
-        Input input = new StubInput(new String[]{"3", item.getId(), "6"});
+       Input input = new StubInput(new String[]{"3", tracker.findAll()[1].getId(), "6"});
         new StartUI(input, tracker).init();
-        assertThat(tracker.findById(item2.getId()).getName(), is("test2"));
+        assertThat(tracker.findAll().length, is(2));
     }
 }

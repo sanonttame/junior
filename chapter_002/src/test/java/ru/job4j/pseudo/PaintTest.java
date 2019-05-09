@@ -18,11 +18,13 @@ public class PaintTest {
     private final ByteArrayOutputStream out = new ByteArrayOutputStream(); // буфер для результата.
     @Before
     public void loadOutput() {
-         System.setOut(new PrintStream(this.out));
+
+        System.setOut(new PrintStream(this.out));
         }
         @After
         public void backOutput() {
-            System.setOut(this.stdout);
+
+        System.setOut(this.stdout);
         }
 
         @Test
