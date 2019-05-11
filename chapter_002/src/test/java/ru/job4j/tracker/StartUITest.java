@@ -19,20 +19,23 @@ public class StartUITest {
     private Tracker tracker = new Tracker();
     private final PrintStream stout = System.out;
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
+
     @Before
     public void BeforeTest() {
         {
-            tracker.add(new Item("testOne", "first",System.currentTimeMillis()));
-            tracker.add(new Item("testTwo", "second",System.currentTimeMillis()));
-            tracker.add(new Item("testThird", "third",System.currentTimeMillis()));
+            tracker.add(new Item("testOne", "first", System.currentTimeMillis()));
+            tracker.add(new Item("testTwo", "second", System.currentTimeMillis()));
+            tracker.add(new Item("testThird", "third", System.currentTimeMillis()));
             System.setOut(new PrintStream(this.out));
         }
 
     }
+
     @After
     public void AfterTest() {
         System.setOut(new PrintStream(this.stout));
     }
+
     @Test
     public void whenUserAddItemThenTrackerHasNewItemWithSameName() {
         Input input = new StubInput(new String[]{"0", "test name", "desc", "6"});
@@ -46,10 +49,40 @@ public class StartUITest {
         new StartUI(input, this.tracker).init();
         assertThat(tracker.findAll()[2].getName(), is("test replace"));
     }
+
     @Test
     public void whenDeleteItem() {
-       Input input = new StubInput(new String[]{"3", tracker.findAll()[1].getId(), "6"});
+        Input input = new StubInput(new String[]{"3", tracker.findAll()[1].getId(), "6"});
         new StartUI(input, tracker).init();
         assertThat(tracker.findAll().length, is(2));
+    }
+
+    @Test
+    public void whenFindbyId() {
+        Input input = new StubInput(new String[]{"4", tracker.findAll()[0].getId(), "6"});
+        Item item = tracker.findById(tracker.findAll()[0].getId());
+        new StartUI(input, tracker).init();
+        assertThat(out.toString().contains(item.getName()), is(true));
+    }
+
+    @Test
+    public void whenFindbyName() {
+        Input input = new StubInput(new String[]{"5", tracker.findAll()[0].getName(), "6"});
+        StringBuilder result = new StringBuilder();
+        for (Item item : this.tracker.findByName(tracker.findAll()[0].getName())) {
+            result.append(item.getName());
+        }
+        new StartUI(input, tracker).init();
+        assertThat(out.toString().contains(result), is(true));
+    }
+    @Test
+    public void whenShowAll() {
+        Input input = new StubInput(new String[]{"1", "6"});
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < this.tracker.findAll().length; i++){
+            result.append(System.lineSeparator() + this.tracker.findAll()[i].getName());
+        }
+        new StartUI(input, tracker).init();
+        assertThat(new String(out.toString()).contains(result.toString()), is(true));
     }
 }

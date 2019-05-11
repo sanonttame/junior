@@ -24,7 +24,7 @@ public class StartUI {
     private static final String EDIT = "2";
 
     /**
-     * константа меня для удаления заявки.
+     * константа для удаления заявки.
      */
     private static final String DELT = "3";
 
