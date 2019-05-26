@@ -1,4 +1,4 @@
-package ru.job4j.tracker;
+/**package ru.job4j.tracker;
 
 import org.junit.After;
 import org.junit.Before;
@@ -9,12 +9,13 @@ import java.io.PrintStream;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
+
 /**
  * Тест класса StartUI.
  * @author Anton Narayan
  * @version 0.1
  * @since 0.1
- */
+
 public class StartUITest {
     private Tracker tracker = new Tracker();
     private final PrintStream stout = System.out;
@@ -79,10 +80,10 @@ public class StartUITest {
     public void whenShowAll() {
         Input input = new StubInput(new String[]{"1", "6"});
         StringBuilder result = new StringBuilder();
-        for (int i = 0; i < this.tracker.findAll().length; i++){
+        for (int i = 0; i < this.tracker.findAll().length; i++) {
             result.append(System.lineSeparator() + this.tracker.findAll()[i].getName());
         }
         new StartUI(input, tracker).init();
         assertThat(new String(out.toString()).contains(result.toString()), is(true));
     }
-}
+}*/
