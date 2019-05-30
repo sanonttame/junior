@@ -39,6 +39,7 @@ public class StartUI {
             menu.select(input.ask("select:", range));
         } while (!"y".equals(this.input.ask("Exit?(y): ")));
     }
+
         /**
      * Поиск всех заявок.
      * @return значения массива в ви0де строки
@@ -48,6 +49,7 @@ public class StartUI {
      * Запуск программы.
      * @param args
      */
+
     public static void main(String[] args) {
         new StartUI(new ValidateInput(), new Tracker()).init();
     }

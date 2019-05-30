@@ -6,7 +6,7 @@ public class MenuTracker {
     private Input input;
     private Tracker tracker;
     //создание действий которые описаны в системе
-    private UserAction[] actions = new UserAction[6];
+    private UserAction[] actions = new UserAction[7];
 
     /**
      * Конструктор класса MenuTracker.
@@ -27,7 +27,8 @@ public class MenuTracker {
         this.actions[2] = new DeleteItem();
         this.actions[3] = new FindById();
         this.actions[4] = new FindByName();
-        this.actions[5] = new  ReplaceItem();
+        this.actions[5] = new ReplaceItem();
+        this.actions[6] = new Exit();
     }
 
     /**

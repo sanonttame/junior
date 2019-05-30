@@ -8,7 +8,7 @@ public class ReplaceItem implements UserAction {
         return 5;
     }
     @Override
-    public void execute(Input input, Tracker tracker){
+    public void execute(Input input, Tracker tracker) {
         String id = input.ask("Введите иденификатор заявки, которая будет заменена: ");
         String name = input.ask("Введине имя новой заявки: ");
         String desc = input.ask("Введите описание: ");

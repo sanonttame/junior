@@ -1,7 +1,6 @@
-/**package ru.job4j.tracker;
+package ru.job4j.tracker;
 
 import org.junit.Test;
-
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 /**
@@ -9,7 +8,7 @@ import static org.junit.Assert.assertThat;
  * @author Anton Narayan
  * @version 0.1
  * @since 0.1
-
+*/
 public class TrackerTest {
     @Test
     public void whenAddNewItemThenTrackerHasSameItem() {
@@ -64,4 +63,3 @@ public class TrackerTest {
         assertThat(tracker.findAll(), is(result.findAll()));
     }
 }
- */
