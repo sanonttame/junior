@@ -79,13 +79,13 @@ public class StartUITest {
     public void whenShowAll() {
         Input input = new StubInput(new String[]{"1", "y"});
         StringBuilder result = new StringBuilder();
-        result.append("0.Добавление новой заявки.")
-                .append(System.lineSeparator() + "1.Вывод всех заявок")
-                .append(System.lineSeparator() + "2.Удаление заявки.")
-                .append(System.lineSeparator() + "3.Поиск заявки по идентификатору.")
-                .append(System.lineSeparator() + "4.Поиск заявки по имени.")
-                .append(System.lineSeparator() + "5.Замена заявки.")
-                .append(System.lineSeparator() + "6.Выход.")
+        result.append("0. Добавление новой заявки.")
+                .append(System.lineSeparator() + "1. Вывод всех заявок")
+                .append(System.lineSeparator() + "2. Удаление заявки.")
+                .append(System.lineSeparator() + "3. Поиск заявки по идентификатору.")
+                .append(System.lineSeparator() + "4. Поиск заявки по имени.")
+                .append(System.lineSeparator() + "5. Замена заявки.")
+                .append(System.lineSeparator() + "6. Выход.")
                 .append(System.lineSeparator() + "------------ Все заявки : --------------");
         for (int i = 0; i < this.tracker.findAll().length; i++) {
             result.append(System.lineSeparator() + this.tracker.findAll()[i].getId() + " "
