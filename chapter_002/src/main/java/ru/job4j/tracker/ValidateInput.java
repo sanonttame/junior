@@ -1,7 +1,8 @@
 package ru.job4j.tracker;
 
 /**
- * Что по сути делает класс ValidateInput - он получает данные из системы до тех под пока не введут правильные символы.
+ * Что по сути делает класс ValidateInput - он получает данные
+ * из системы до тех под пока не введут правильные символы.
  */
 public class ValidateInput implements Input {
 
