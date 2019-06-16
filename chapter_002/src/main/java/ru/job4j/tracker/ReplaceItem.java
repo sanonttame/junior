@@ -1,11 +1,10 @@
 package ru.job4j.tracker;
 /**
- * Метод расширяет класс UserAction. Заменяет заявку на новую.
+ * Метод расширяет класс BaseAction. Заменяет заявку на новую.
  */
-public class ReplaceItem implements UserAction {
-    @Override
-    public int key() {
-        return 5;
+public class ReplaceItem extends BaseAction {
+    public ReplaceItem(int key, String name){
+        super(key, name);
     }
     @Override
     public void execute(Input input, Tracker tracker) {
@@ -20,8 +19,4 @@ public class ReplaceItem implements UserAction {
         }
     }
 
-    @Override
-    public String info() {
-        return String.format("%s. %s", this.key(), "Замена заявки.");
-    }
 }

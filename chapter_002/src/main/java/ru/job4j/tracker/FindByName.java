@@ -1,11 +1,10 @@
 package ru.job4j.tracker;
 /**
- * Метод расширяет класс UserAction. аходит заявку по имени.
+ * Метод расширяет класс BaseAction. аходит заявку по имени.
  */
-public class FindByName implements UserAction {
-    @Override
-    public int key() {
-        return 4;
+public class FindByName extends BaseAction {
+    public FindByName(int key, String name) {
+        super(key, name);
     }
     @Override
     public void execute(Input input, Tracker tracker) {
@@ -15,8 +14,5 @@ public class FindByName implements UserAction {
         for (int i = 0; i != array.length; i++) {
             System.out.println(array[i].getName());
         }
-    }
-    public String info() {
-        return String.format("%s. %s", this.key(), "Поиск заявки по имени.");
     }
 }

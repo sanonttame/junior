@@ -1,13 +1,11 @@
 package ru.job4j.tracker;
 /**
- * Метод расширяет класс UserAction. Создает удаляет заявку.
+ * Метод расширяет класс BaseAction. Создает удаляет заявку.
  */
-public class DeleteItem implements UserAction {
-    @Override
-    public int key() {
-        return 2;
+public class DeleteItem extends BaseAction {
+    public DeleteItem(int key, String name) {
+        super(key, name);
     }
-
     @Override
     public void execute(Input input, Tracker tracker) {
         String id = input.ask("Идентификатор заявки : ");
@@ -17,6 +15,4 @@ public class DeleteItem implements UserAction {
             System.out.println("Заявки с таким id не существует.");
         }
     }
-        public String info() {
-                return String.format("%s. %s", this.key(), "Удаление заявки."); }
 }
