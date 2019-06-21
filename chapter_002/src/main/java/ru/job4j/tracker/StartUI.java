@@ -3,11 +3,17 @@ package ru.job4j.tracker;
 
 
 /**
+ * Класс, содержащий логику взаимодействия с пользователем.
  * @version $Id$
  * @since 0.1
  */
 public class StartUI {
-    private final Input input;
+    private Input input;
+    /**
+     * Флажок для выхода.
+     * Программа работает до тех пор, пока значение истинно.
+     */
+    private boolean working = true;
     /**
      * Хранилище заявок.
      */
@@ -27,16 +33,18 @@ public class StartUI {
     public void init() {
         MenuTracker menu = new MenuTracker(this.input, this.tracker);
         int[] range = new int[7];
-        menu.fillActions();
+        menu.fillActions(this);
         for (int i = 0; i < menu.getActionsLentgh(); i++) {
             range[i] = i;
         }
         do {
             menu.show();
-            menu.select(input.ask("выбор", range));
-        } while (!"y".equals(this.input.ask("Exit?(y): ")));
+            menu.select(input.ask("Выбор : ", range));
+        } while (this.working);
     }
-
+    public void stop() {
+        this.working = false;
+    }
         /**
      * Поиск всех заявок.
      * @return значения массива в ви0де строки

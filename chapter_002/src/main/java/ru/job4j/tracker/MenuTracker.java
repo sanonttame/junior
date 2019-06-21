@@ -1,5 +1,27 @@
 package ru.job4j.tracker;
 
+ class Exit implements UserAction {
+    private final StartUI ui;
+
+     Exit(StartUI ui) {
+         this.ui = ui;
+     }
+
+     public int key() {
+         return 0;
+     }
+
+     @Override
+    public void execute(Input input, Tracker tracker) {
+        System.out.println("Exit");
+        this.ui.stop();
+    }
+
+     @Override
+     public String info() {
+         return "6 : Удаление заявки.";
+     }
+ }
 
 public class MenuTracker {
     //получаем экземпляры объектов
@@ -21,14 +43,14 @@ public class MenuTracker {
     /**
      * Действия.
      */
-    public void fillActions() {
+    public void fillActions(StartUI ui) {
         this.actions[0] = new AddItem(0, "Добавление новой заявки");
         this.actions[1] = new FindAll(1, "Поиск всех заявок.");
         this.actions[2] = new DeleteItem(2,"Удаление заявки.");
         this.actions[3] = new FindById(3, "Поиск по идентификатору.");
         this.actions[4] = new FindByName(4, "Поиск по имени.");
         this.actions[5] = new ReplaceItem(5, "Замена заявки.");
-        this.actions[6] = new Exit(6, "Выход.");
+        this.actions[6] = new Exit(ui);
     }
 
     /**
