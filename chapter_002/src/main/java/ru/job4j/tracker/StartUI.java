@@ -56,11 +56,7 @@ public class StartUI {
      */
 
     public static void main(String[] args) {
-        new StartUI(
-                new ValidateInput(
-                        new ConsoleInput()
-                ),
-                new Tracker()
+        new StartUI(new ValidateInput(new ConsoleInput()),new Tracker()
         ).init();
     }
 }
