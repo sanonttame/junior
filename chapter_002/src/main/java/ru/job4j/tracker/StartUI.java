@@ -1,6 +1,7 @@
 package ru.job4j.tracker;
 
 
+import java.util.ArrayList;
 
 /**
  * Класс, содержащий логику взаимодействия с пользователем.
@@ -32,10 +33,10 @@ public class StartUI {
      */
     public void init() {
         MenuTracker menu = new MenuTracker(this.input, this.tracker);
-        int[] range = new int[7];
+        ArrayList<Integer> range = new ArrayList<>();
         menu.fillActions(this);
         for (int i = 0; i < menu.getActionsLentgh(); i++) {
-            range[i] = i;
+            range.add(i);
         }
         do {
             menu.show();
@@ -45,10 +46,7 @@ public class StartUI {
     public void stop() {
         this.working = false;
     }
-        /**
-     * Поиск всех заявок.
-     * @return значения массива в ви0де строки
-     */
+
 
     /**
      * Запуск программы.

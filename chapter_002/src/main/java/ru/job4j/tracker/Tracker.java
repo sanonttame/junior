@@ -13,7 +13,8 @@ public class Tracker {
     /**
      * Массив для хранение заявок.
      */
-    private final Item[] items = new Item[100];
+    private final ArrayList<Item> items = new ArrayList<>();
+    //private final ArrayList<Item> items = new ArrayList<>();
 
     /**
      * Указатель ячейки для новой заявки.
@@ -26,7 +27,7 @@ public class Tracker {
      */
     public Item add(Item item) {
         item.setId(this.generateId());
-        this.items[this.position++] = item;
+        items.add(this.position++, item);
         return item;
     }
 
@@ -61,14 +62,17 @@ public class Tracker {
      */
     public boolean replace(String id, Item item) {
         boolean result = false;
-        for (int index = 0; index != this.position; index++) {
-            if (item != null &&  this.items[index].getId().equals(id)) {
-                this.items[index] = item;
-                this.items[index].setId(id);
+
+         for (int index = 0; index != this.position; index++) {
+            if (item != null &&  items.get(index).getId().equals(id)) {
+                items.set(index, item);
+                items.get(index).setId(id);
                 result = true;
                 break;
             }
         }
+
+
         return result;
     }
     /**
@@ -79,9 +83,8 @@ public class Tracker {
     public boolean delete(String id) {
         boolean result = false;
         for (int i = 0; i < this.position; i++) {
-            if (this.items[i] != null && this.items[i].getId().equals(id)) {
-                this.items[i] = null;
-                System.arraycopy(items, i + 1, items, i, this.position - i - 1);
+            if (items.get(i) != null && items.get(i).getId().equals(id)) {
+                items.remove(i);
                 this.position--;
                 result = true;
             }
@@ -92,24 +95,21 @@ public class Tracker {
      * Метод выводящий все элементы массива.
      * @return массив
      */
-    public Item[] findAll() {
-		return Arrays.copyOf(this.items, this.position);
-
+    public ArrayList<Item> findAll() {
+		return items;
     }
     /**
      * Метод ищущий элементы по имени.
      * @param key имя элемента
      * @return массив найденных элементов.
      */
-    public Item[] findByName(String key) {
-        Item[] result = new Item[this.position];
-        int count = 0;
+    public ArrayList<Item> findByName(String key) {
+        ArrayList<Item> result = new ArrayList<>();
         for (int i = 0; i < this.position; i++) {
-            if (items[i] != null && items[i].getName().equals(key)) {
-                result[count] = items[i];
-                count++;
+            if (items.get(i) != null && items.get(i).getName().equals(key)) {
+                result.add(items.get(i));
             }
         }
-        return Arrays.copyOf(result, count);
+        return result;
     }
 }
