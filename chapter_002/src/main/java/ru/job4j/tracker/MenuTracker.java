@@ -19,7 +19,7 @@ package ru.job4j.tracker;
 
      @Override
      public String info() {
-         return "6 : Удаление заявки.";
+         return "6 : Выход";
      }
  }
 

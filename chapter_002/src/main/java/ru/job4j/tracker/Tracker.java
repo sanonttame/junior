@@ -13,7 +13,7 @@ public class Tracker {
     /**
      * Массив для хранение заявок.
      */
-    private final ArrayList<Item> items = new ArrayList<>();
+    private final List<Item> items = new ArrayList<>();
     //private final ArrayList<Item> items = new ArrayList<>();
 
     /**
@@ -47,7 +47,7 @@ public class Tracker {
     public Item findById(String id) {
         Item result = null;
         for (Item item : items) {
-            if (item != null && item.getId().equals(id)) {
+            if (item.getId().equals(id)) {
                 result = item;
                 break;
             }
@@ -64,7 +64,7 @@ public class Tracker {
         boolean result = false;
 
          for (int index = 0; index != this.position; index++) {
-            if (item != null &&  items.get(index).getId().equals(id)) {
+            if (items.get(index).getId().equals(id)) {
                 items.set(index, item);
                 items.get(index).setId(id);
                 result = true;
@@ -83,7 +83,7 @@ public class Tracker {
     public boolean delete(String id) {
         boolean result = false;
         for (int i = 0; i < this.position; i++) {
-            if (items.get(i) != null && items.get(i).getId().equals(id)) {
+            if (items.get(i).getId().equals(id)) {
                 items.remove(i);
                 this.position--;
                 result = true;
@@ -95,7 +95,7 @@ public class Tracker {
      * Метод выводящий все элементы массива.
      * @return массив
      */
-    public ArrayList<Item> findAll() {
+    public List<Item> findAll() {
 		return items;
     }
     /**
@@ -103,10 +103,10 @@ public class Tracker {
      * @param key имя элемента
      * @return массив найденных элементов.
      */
-    public ArrayList<Item> findByName(String key) {
-        ArrayList<Item> result = new ArrayList<>();
+    public List<Item> findByName(String key) {
+        List<Item> result = new ArrayList<>();
         for (int i = 0; i < this.position; i++) {
-            if (items.get(i) != null && items.get(i).getName().equals(key)) {
+            if (items.get(i).getName().equals(key)) {
                 result.add(items.get(i));
             }
         }

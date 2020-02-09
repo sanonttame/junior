@@ -1,7 +1,7 @@
 package ru.job4j.tracker;
 
 import java.lang.reflect.Array;
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  * Что по сути делает класс ValidateInput - он получает данные
@@ -21,7 +21,7 @@ public class ValidateInput implements Input {
 	}
 
 	@Override
-	public int ask(String question, ArrayList<Integer> range) {
+	public int ask(String question, List<Integer> range) {
 		boolean invalid = true;
 		int value = -1;
 		do {

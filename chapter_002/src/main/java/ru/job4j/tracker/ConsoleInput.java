@@ -1,7 +1,6 @@
 package ru.job4j.tracker;
 
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Класс используется для ввода пользовательских данных с консоли.
@@ -14,7 +13,7 @@ public class ConsoleInput implements Input {
 		return scanner.nextLine();
 	}
 
-	public int ask(String question, ArrayList<Integer> range) {
+	public int ask(String question, List<Integer> range) {
 		int key = Integer.valueOf(this.ask(question));
 		boolean exist = false;
 		for (int value : range) {

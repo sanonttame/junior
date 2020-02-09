@@ -1,6 +1,6 @@
 package ru.job4j.tracker;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Метод расширяет класс BaseAction. аходит заявку по имени.
@@ -13,7 +13,7 @@ public class FindByName extends BaseAction {
     public void execute(Input input, Tracker tracker) {
         System.out.println("------------ Поиск заявки по имени --------------");
         String name = input.ask("Введите имя заявки : ");
-        ArrayList<Item> array = tracker.findByName(name);
+        List<Item> array = tracker.findByName(name);
         for (Item item : array) {
             System.out.println(item.getName());
         }
