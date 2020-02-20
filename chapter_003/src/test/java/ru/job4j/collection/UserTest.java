@@ -23,10 +23,7 @@ public class UserTest {
 
     @Test
     public void whenComparePertVSIvan() {
-        int rsl = new User("Petr", 32)
-                .compareTo(
-                        new User("Ivan", 31)
-                );
+        int rsl = new User("Petr", 32).compareTo(new User("Ivan", 31));
         assertThat(rsl, greaterThan(0));
     }
 }
