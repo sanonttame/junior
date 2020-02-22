@@ -7,14 +7,14 @@ package ru.job4j.tracker;
  * ситуаций в конструкторе и отсутствии необходимости ленивой инициализации.
  */
 public class SecondTrackerSingleton {
-    //Нормальная инициализация (потокобезопасно, прсото и прозрачно).
-    private static final SecondTrackerSingleton instance = new SecondTrackerSingleton();
+    //Нормальная инициализация (потокобезопасно, проcто и прозрачно).
+    private static final SecondTrackerSingleton INSTANCE = new SecondTrackerSingleton();
 
     private SecondTrackerSingleton() {
     }
 
     public static SecondTrackerSingleton getInstance() {
-        return instance;
+        return INSTANCE;
     }
 
     public Item add(Item model) {

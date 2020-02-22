@@ -21,55 +21,52 @@ public class StartUITest {
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
 
     @Before
-    public void BeforeTestClass() {
-        {
+    public void beforeTestClass() {
             tracker.add(new Item("testOne", "first", System.currentTimeMillis()));
             tracker.add(new Item("testTwo", "second", System.currentTimeMillis()));
             tracker.add(new Item("testThird", "third", System.currentTimeMillis()));
             System.setOut(new PrintStream(this.out));
-        }
-
     }
 
     @After
-    public void AfterTestClass() {
+    public void afterTestClass() {
         System.setOut(new PrintStream(this.stout));
     }
 
     @Test
     public void whenUserAddItemThenTrackerHasNewItemWithSameName() {
-        Input input = new StubInput(new String[]{"0", "test name", "desc", "y"});
+        Input input = new StubInput(new String[]{"0", "test name", "desc", "6"});
         new StartUI(input, this.tracker).init();
-        assertThat(this.tracker.findAll()[3].getName(), is("test name"));
+        assertThat(this.tracker.findAll().get(3).getName(), is("test name"));
     }
 
     @Test
     public void whenUpdateThenTrackerHasUpdatedValue() {
-        Input input = new StubInput(new String[]{"5", tracker.findAll()[2].getId(), "test replace", "заменили заявку", "y"});
+        Input input = new StubInput(new String[]{"5", tracker.findAll().get(2).getId(), "test replace", "заменили заявку", "6"});
         new StartUI(input, this.tracker).init();
-        assertThat(tracker.findAll()[2].getName(), is("test replace"));
+        assertThat(tracker.findAll().get(2).getName(), is("test replace"));
     }
 
     @Test
     public void whenDeleteItem() {
-        Input input = new StubInput(new String[]{"2", tracker.findAll()[1].getId(), "y"});
+        Input input = new StubInput(new String[]{"2", tracker.findAll().get(2).getId(), "6"});
         new StartUI(input, tracker).init();
-        assertThat(tracker.findAll().length, is(2));
+        assertThat(tracker.findAll().size(), is(2));
     }
 
     @Test
     public void whenFindbyId() {
-        Input input = new StubInput(new String[]{"3", tracker.findAll()[0].getId(), "y"});
-        Item item = tracker.findById(tracker.findAll()[0].getId());
+        Input input = new StubInput(new String[]{"3", tracker.findAll().get(0).getId(), "6"});
+        Item item = tracker.findById(tracker.findAll().get(0).getId());
         new StartUI(input, tracker).init();
         assertThat(out.toString().contains(item.getName()), is(true));
     }
 
     @Test
     public void whenFindbyName() {
-        Input input = new StubInput(new String[]{"4", tracker.findAll()[0].getName(), "y"});
+        Input input = new StubInput(new String[]{"4", tracker.findAll().get(0).getName(), "6"});
         StringBuilder result = new StringBuilder();
-        for (Item item : this.tracker.findByName(tracker.findAll()[0].getName())) {
+        for (Item item : this.tracker.findByName(tracker.findAll().get(0).getName())) {
             result.append(item.getName());
         }
         new StartUI(input, tracker).init();
@@ -77,20 +74,20 @@ public class StartUITest {
     }
     @Test
     public void whenShowAll() {
-        Input input = new StubInput(new String[]{"1", "y"});
+        Input input = new StubInput(new String[]{"1", "6"});
         StringBuilder result = new StringBuilder();
-        result.append("0. Добавление новой заявки.")
+        result.append("------------ Все заявки : --------------")
+                .append(System.lineSeparator() + "0. Добавление новой заявки.")
                 .append(System.lineSeparator() + "1. Вывод всех заявок")
                 .append(System.lineSeparator() + "2. Удаление заявки.")
                 .append(System.lineSeparator() + "3. Поиск заявки по идентификатору.")
                 .append(System.lineSeparator() + "4. Поиск заявки по имени.")
                 .append(System.lineSeparator() + "5. Замена заявки.")
-                .append(System.lineSeparator() + "6. Выход.")
-                .append(System.lineSeparator() + "------------ Все заявки : --------------");
-        for (int i = 0; i < this.tracker.findAll().length; i++) {
-            result.append(System.lineSeparator() + this.tracker.findAll()[i].getId() + " "
-                    + this.tracker.findAll()[i].getName() + " "
-                    + this.tracker.findAll()[i].getDecs()
+                .append(System.lineSeparator() + "6. Выход");
+        for (Item item : this.tracker.findAll()) {
+            result.append(System.lineSeparator() + item.getId() + " "
+                    + item.getName() + " "
+                    + item.getDecs()
             );
         }
         result.append(System.lineSeparator());

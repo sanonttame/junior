@@ -3,7 +3,7 @@ package ru.job4j.tracker;
  * Метод расширяет класс BaseAction. Заменяет заявку на новую.
  */
 public class ReplaceItem extends BaseAction {
-    public ReplaceItem(int key, String name){
+    public ReplaceItem(int key, String name) {
         super(key, name);
     }
     @Override

@@ -13,10 +13,10 @@ public class ConvertList {
      * @param list list with arrays
      * @return list with elements of arrays
      */
-    public static List<Integer> convert(List<int[]> list){
+    public static List<Integer> convert(List<int[]> list) {
         List<Integer> rsl = new ArrayList<>();
         for (int[] array: list) {
-            for (int cell : array){
+            for (int cell : array) {
                 rsl.add(cell);
             }
         }

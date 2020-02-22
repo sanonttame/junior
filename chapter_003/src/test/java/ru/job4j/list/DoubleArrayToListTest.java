@@ -12,7 +12,6 @@ import static org.junit.Assert.assertThat;
 public class DoubleArrayToListTest {
     @Test
     public void when2on2ArrayThenList4() {
-        DoubleArrayToList list = new DoubleArrayToList();
         int[][] input = {
                 {1, 2},
                 {3, 4}
@@ -20,7 +19,7 @@ public class DoubleArrayToListTest {
         List<Integer> expect = Arrays.asList(
                 1, 2, 3, 4
         );
-        List<Integer> result = list.toList(input);
+        List<Integer> result = DoubleArrayToList.toList(input);
         assertThat(result, is(expect));
     }
 }

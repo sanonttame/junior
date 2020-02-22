@@ -15,7 +15,7 @@ class SortByNameThatAnother implements Comparator<Item> {
      * @return 1 если истинно , -1 если ложно
      */
     @Override
-    public int compare(Item that, Item another){
+    public int compare(Item that, Item another) {
         return that.getName().compareTo(another.getName());
     }
 }

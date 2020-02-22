@@ -4,7 +4,7 @@ package ru.job4j.tracker;
  */
 public class FindById extends BaseAction {
 
-    public FindById(int key, String name){
+    public FindById(int key, String name) {
         super(key, name);
     }
     @Override
