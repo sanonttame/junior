@@ -23,9 +23,9 @@ public class FirstTrackerSingleton {
      * Метод getInstance() - при вызове метода, проверяет статическое поле instance,
      * если поле не загружено,
      * оно инициализирует его новосозданном объектом.
-     * @return
+     * @return instance
      */
-      public static FirstTrackerSingleton getInstance() {
+      static FirstTrackerSingleton getInstance() {
           //если поле instance не содержит экземпляр объекта, заполняет его.
         if (instance == null) {
             instance = new FirstTrackerSingleton();

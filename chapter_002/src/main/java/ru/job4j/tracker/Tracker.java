@@ -1,6 +1,5 @@
 package ru.job4j.tracker;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 /**
@@ -44,7 +43,7 @@ public class Tracker {
      * @param id Идентификатор заявки.
      * @return найденную по Id заявку.
      */
-    public Item findById(String id) {
+    Item findById(String id) {
         Item result = null;
         for (Item item : items) {
             if (item.getId().equals(id)) {
@@ -60,7 +59,7 @@ public class Tracker {
      * @param item Заявка, заменяющая старую.
      * @return true or false
      */
-    public boolean replace(String id, Item item) {
+    boolean replace(String id, Item item) {
         boolean result = false;
 
          for (int index = 0; index != this.position; index++) {
@@ -80,7 +79,7 @@ public class Tracker {
      * @param id Идентификатор заявки
      * @return true or false
      */
-    public boolean delete(String id) {
+    boolean delete(String id) {
         boolean result = false;
         for (int i = 0; i < this.position; i++) {
             if (items.get(i).getId().equals(id)) {
@@ -95,7 +94,7 @@ public class Tracker {
      * Метод выводящий все элементы массива.
      * @return массив
      */
-    public List<Item> findAll() {
+    List<Item> findAll() {
 		return items;
     }
     /**
@@ -103,7 +102,7 @@ public class Tracker {
      * @param key имя элемента
      * @return массив найденных элементов.
      */
-    public List<Item> findByName(String key) {
+    List<Item> findByName(String key) {
         List<Item> result = new ArrayList<>();
         for (int i = 0; i < this.position; i++) {
             if (items.get(i).getName().equals(key)) {

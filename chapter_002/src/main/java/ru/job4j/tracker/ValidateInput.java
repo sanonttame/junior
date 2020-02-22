@@ -1,6 +1,5 @@
 package ru.job4j.tracker;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 /**
@@ -11,7 +10,7 @@ public class ValidateInput implements Input {
 
 	private final Input input;
 
-	public ValidateInput(final Input input) {
+	ValidateInput(final Input input) {
 		this.input = input;
 	}
 

@@ -1,6 +1,6 @@
 package ru.job4j.tracker;
 /**
- * Initialization on Demand Holde.
+ * Initialization on Demand hold.
  */
 public class FourthTrackerSingleton {
 
@@ -9,14 +9,14 @@ public class FourthTrackerSingleton {
     /**
      * @return объект инициилизируется при первом выхове метода getInstance().
      */
-    public static FourthTrackerSingleton getInstance() {
+    static FourthTrackerSingleton getInstance() {
         return Holder.INSTANCE;
     }
     public Item add(Item model) {
         return model;
     }
 
-    public static final class Holder {
+    private static final class Holder {
         private static final FourthTrackerSingleton INSTANCE = new FourthTrackerSingleton();
 
     }
