@@ -12,8 +12,7 @@ public class Tracker {
     /**
      * Массив для хранение заявок.
      */
-    private final List<Item> items = new ArrayList<>();
-    //private final ArrayList<Item> items = new ArrayList<>();
+    private final ArrayList<Item> items = new ArrayList<>();
 
     /**
      * Указатель ячейки для новой заявки.
@@ -94,8 +93,8 @@ public class Tracker {
      * Метод выводящий все элементы массива.
      * @return массив
      */
-    List<Item> findAll() {
-		return items;
+    ArrayList<Item> findAll() {
+		return this.items;
     }
     /**
      * Метод ищущий элементы по имени.
