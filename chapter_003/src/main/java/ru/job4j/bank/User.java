@@ -11,12 +11,12 @@ public class User {
     private String passport;
     private String username;
 
-    User(String passport, String username) {
+     User(String passport, String username) {
         this.passport = passport;
         this.username = username;
     }
 
-    String getPassport() {
+    public String getPassport() {
         return passport;
     }
 

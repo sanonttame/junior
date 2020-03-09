@@ -23,11 +23,11 @@ public class Account {
         return requisite;
     }
 
-    void setBalance(double balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
     }
 
-    double getBalance() {
+    public double getBalance() {
         return balance;
     }
 
@@ -38,6 +38,7 @@ public class Account {
         Account account = (Account) obj;
         return Objects.equals(account, obj);
     }
+
     @Override
     public int hashCode() {
         return Objects.hashCode(requisite);
