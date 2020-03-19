@@ -22,4 +22,8 @@ public class Departments{
         Collections.sort(orgs);
     }
 
+    public static void sortDesc(List<String> orgs) {
+        Collections.sort(orgs);
+        Collections.reverse(orgs);
+    }
 }
