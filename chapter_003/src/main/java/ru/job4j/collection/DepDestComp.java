@@ -6,8 +6,8 @@ public class DepDestComp implements Comparator<String> {
     @Override
     public int compare(String o1, String o2) {
 
-        String[] elementsO1 = o1.split("/",2);
-        String[] elementsO2 = o2.split("/",2);
+        //String[] elementsO1 = o1.split("/",2);
+        //String[] elementsO2 = o2.split("/",2);
         /**
         int length = (elementsO1.length > elementsO2.length) ? elementsO1.length : elementsO2.length;
         List<String> tmp = new ArrayList<>();
@@ -23,7 +23,6 @@ public class DepDestComp implements Comparator<String> {
                 Collections.addAll(tmp,elementsO1);
                 tmp.add("sssssss");
                 elementsO1 = tmp.toArray(new String[length]);
-
             }
         }
         for (int i = 0; i < length;) {
@@ -33,7 +32,7 @@ public class DepDestComp implements Comparator<String> {
                 return elementsO2[i].compareTo(elementsO1[i]);
             }
         }
-         */
+         ________________________________________________________
         if(elementsO1[0].compareTo(elementsO2[0]) == 0) {
             if(elementsO1.length == 2 && elementsO2.length == 1){
                 return 1;
@@ -41,5 +40,8 @@ public class DepDestComp implements Comparator<String> {
                 return -1;
             } else return elementsO2[1].compareTo(elementsO1[1]);
         } else return elementsO1[0].compareTo(elementsO2[0]);
+         */
+        int rsl = o2.split("/")[0].compareTo(o1.split("/")[0]);
+        return rsl != 0 ? rsl : o1.compareTo(o2);
     }
 }

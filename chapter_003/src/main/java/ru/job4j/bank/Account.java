@@ -49,4 +49,13 @@ public class Account {
         return "Requisite: " + this.requisite
                 + ", " + "(balance: " + this.balance + ").";
     }
+    public boolean transfer(Account src, Account dest,double amount){
+        boolean result = false;
+        if (src != null && dest != null && src.getBalance() - amount >= 0) {
+            src.setBalance(src.getBalance() - amount);
+            dest.setBalance(dest.getBalance() + amount);
+            result = true;
+        }
+        return result;
+    }
 }
