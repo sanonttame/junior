@@ -12,11 +12,4 @@ public class FunctionDiapason {
         }
         return result;
     }
-    public List<Double> diapasonLog(int start, int end){
-        return diapason(start,end, Math::log);
-    }
-    public List<Double> diapasonQudr(int start, int end) {
-        return diapason(start, end, x -> Math.pow(x, 2));
-    }
-
 }
