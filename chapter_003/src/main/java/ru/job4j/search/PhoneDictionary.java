@@ -10,29 +10,28 @@ class PhoneDictionary {
         this.persons.add(person);
     }
 
+
     /**
      * Вернуть список всех пользователей , которые содержат ключ в любых полях.
      *
      * @param key ключ поиска
      * @return Список подходящих пользоватеей
      */
+
      ArrayList<Person> find(String key) {
-         Predicate<Person> combine = person -> {
-             boolean result =false;
-             if(person.getAddress().contains(key)
-                     ||person.getName().contains(key)
-                     ||person.getSurname().contains(key)
-                     ||person.getPhone().contains(key)) {
-                 result = true;
-             }
-             return result;
-         };
          ArrayList<Person> result = new ArrayList<>();
-        for (Person person : persons) {
-            if(combine.test(person)){
-                result.add(person);
-            }
-       }
+         Predicate<Person> predicateName = person->person.getName().contains(key);
+         Predicate<Person> predicateSurname = person->person.getSurname().contains(key);
+         Predicate<Person> predicateAddress = person->person.getAddress().contains(key);
+         Predicate<Person> predicatePhone = person->person.getPhone().contains(key);
+         Predicate<Person> combine = predicateAddress.or(predicateName).or(predicatePhone).or(predicateSurname);
+
+         for(Person person : persons) {
+             if(combine.test(person)){
+                 result.add(person);
+             }
+         }
+
         return result;
     }
 }
