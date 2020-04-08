@@ -4,12 +4,12 @@ package ru.job4j.pseudo;
  * @author Anton Narayan
  * @version 0.1
  */
-public class Paint {
+class Paint {
     /**
      * Метод выводит информацию в консоль.
-     * @param shape
+     * @param shape shape
      */
-    public void draw(Shape shape) {
+    void draw(Shape shape) {
         System.out.println(shape.draw());
     }
 }

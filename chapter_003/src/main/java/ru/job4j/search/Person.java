@@ -1,5 +1,6 @@
 package ru.job4j.search;
 
+ /** @noinspection ALL*/
  class Person {
     private String name;
     private String surname;

@@ -1,11 +1,7 @@
 package ru.job4j.stream;
 
 import org.junit.Test;
-
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
-
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
@@ -16,14 +12,14 @@ import static org.junit.Assert.*;
  */
 public class SchoolTest {
 
-    Student one = new Student(30);
-    Student two = new Student(40);
-    Student three = new Student(50);
-    Student fouth = new Student(60);
-    Student five = new Student(70);
-    Student six = new Student(80);
-    List<Student> students = List.of(one, two, three, fouth, five, six);
-    School school = new School();
+    private Student one = new Student(30);
+    private Student two = new Student(40);
+    private Student three = new Student(50);
+    private Student fouth = new Student(60);
+    private Student five = new Student(70);
+    private Student six = new Student(80);
+    private List<Student> students = List.of(one, two, three, fouth, five, six);
+    private School school = new School();
     @Test
     public void StudentsA(){
         List<Student> result = school.collect(students,student->(student.score >= 70 && student.score < 100));

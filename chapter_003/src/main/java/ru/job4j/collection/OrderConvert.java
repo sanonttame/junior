@@ -8,13 +8,13 @@ import java.util.List;
  * @version 0.1
  * @since 0.1
  */
-public class OrderConvert {
+class OrderConvert {
     /**
      * Method converts list to a hashMap.
-     * @param orders
+     * @param orders orders
      * @return HashMap
      */
-    public static HashMap<String, Order> process(List<Order> orders) {
+    static HashMap<String, Order> process(List<Order> orders) {
         HashMap<String, Order> map = new HashMap<>();
         for (Order order : orders) {
             map.put(order.getNumber(), order);

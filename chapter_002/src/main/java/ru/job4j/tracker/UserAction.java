@@ -9,14 +9,14 @@ public interface UserAction {
 
     /**
      * основной метод.
-     * @param input
-     * @param tracker
+     * @param input input
+     * @param tracker tracker
      */
     void execute(Input input, Tracker tracker);
 
     /**
      * Метод возвращает информацию о выбранном пункте меню.
-     * @return
+     * @return инфа
      */
     String info();
 }

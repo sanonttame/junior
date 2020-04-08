@@ -9,7 +9,7 @@ import java.util.*;
  * @version 0.1
  * @since 02.03.2020
  */
-public class BankService {
+class BankService {
     private Map<User, List<Account>> users = new HashMap<>();
 
     /**
@@ -17,7 +17,7 @@ public class BankService {
      *
      * @param user пользователь
      */
-    public void addUser(User user) {
+    void addUser(User user) {
         users.putIfAbsent(user, new ArrayList<>());
     }
 
@@ -27,7 +27,7 @@ public class BankService {
      * @param passport паспорт
      * @return пользователя
      */
-    public User findByPassport(String passport) {
+    User findByPassport(String passport) {
         Set<User> keys = users.keySet();
         for (User key : keys) {
             if (key.getPassport().equals(passport)) {
@@ -43,7 +43,7 @@ public class BankService {
      * @param passport паспорт
      * @param account  Счёт
      */
-   public void addAccount(String passport, Account account) {
+    void addAccount(String passport, Account account) {
         User user = findByPassport(passport);
         if (user != null) {
             users.get(user).add(account);
@@ -56,7 +56,7 @@ public class BankService {
      * @param requisite реквизиты
      * @return счет
      */
-    public Account findByRequisite(String requisite, String passport) {
+    Account findByRequisite(String requisite, String passport) {
         User user = findByPassport(passport);
         Account result = null;
         if (user != null) {
@@ -78,13 +78,11 @@ public class BankService {
          * @param destPassport паспорт получателя
          * @return прошел перевод или нет
          */
-        public boolean transferMoney (String srcPassport, String srcRequisites, String destPassport, String destRequisites,
-        double amount){
-            boolean result = false;
+        boolean transferMoney(String srcPassport, String srcRequisites, String destPassport, String destRequisites,
+                              double amount){
             Account src = findByRequisite(srcRequisites, srcPassport);
             Account dest = findByRequisite(destRequisites, destPassport);
-            src.transfer(src,dest,amount);
-            return result;
+            return src.transfer(src,dest,amount);
         }
 
 }

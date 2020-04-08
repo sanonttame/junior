@@ -23,7 +23,7 @@ package ru.job4j.tracker;
      }
  }
 
-public class MenuTracker {
+class MenuTracker {
     //получаем экземпляры объектов
     private Input input;
     private Tracker tracker;
@@ -32,10 +32,10 @@ public class MenuTracker {
 
     /**
      * Конструктор класса MenuTracker.
-     * @param input
-     * @param tracker
+     * @param input input
+     * @param tracker tracker
      */
-    public MenuTracker(Input input, Tracker tracker) {
+    MenuTracker(Input input, Tracker tracker) {
         this.input = input;
         this.tracker = tracker;
     }
@@ -43,7 +43,7 @@ public class MenuTracker {
     /**
      * Действия.
      */
-    public void fillActions(StartUI ui) {
+    void fillActions(StartUI ui) {
         this.actions[0] = new AddItem(0, "Добавление новой заявки.");
         this.actions[1] = new FindAll(1, "Вывод всех заявок.");
         this.actions[2] = new DeleteItem(2, "Удаление заявки.");
@@ -56,7 +56,7 @@ public class MenuTracker {
     /**
      * Печать меню.
      */
-    public void show() {
+    void show() {
         for (UserAction action : this.actions) {
             if (action != null) {
                 System.out.println((action.info()));
@@ -66,13 +66,13 @@ public class MenuTracker {
 
     /**
      * Выбор действи.
-     * @param key
+     * @param key key
      */
-    public void select(int key) {
+    void select(int key) {
         this.actions[key].execute(this.input, this.tracker);
     }
 
-    public int getActionsLentgh() {
+    int getActionsLentgh() {
         return actions.length;
     }
 }

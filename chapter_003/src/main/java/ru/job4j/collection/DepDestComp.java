@@ -8,7 +8,7 @@ public class DepDestComp implements Comparator<String> {
 
         //String[] elementsO1 = o1.split("/",2);
         //String[] elementsO2 = o2.split("/",2);
-        /**
+        /*
         int length = (elementsO1.length > elementsO2.length) ? elementsO1.length : elementsO2.length;
         List<String> tmp = new ArrayList<>();
         if (length == elementsO1.length) {

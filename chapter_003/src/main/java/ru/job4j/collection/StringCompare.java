@@ -8,12 +8,13 @@ import java.util.Comparator;
  * @version 0.2
  */
 public class StringCompare implements Comparator<String> {
-    @Override
+
     /**
      * new compare()
-     * @param left,right
+     * @param left,right left right
      * @return -1,0 or 1 (left < right, left == right, left > right)
      */
+    @Override
     public int compare(String left, String right) {
         int rslt = 0;
         int minLenght = Math.min(left.length(), right.length());

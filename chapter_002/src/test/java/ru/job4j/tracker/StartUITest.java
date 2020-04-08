@@ -78,28 +78,11 @@ public class StartUITest {
     public void whenShowAll() {
         Input input = new StubInput(new ArrayList<>(Arrays.asList("1", "6")));
         StringBuilder result = new StringBuilder();
-        result.append("0 : Добавление новой заявки.")
-                .append(System.lineSeparator() + "1 : Вывод всех заявок.")
-                .append(System.lineSeparator() + "2 : Удаление заявки.")
-                .append(System.lineSeparator() + "3 : Поиск заявки по идентификатору.")
-                .append(System.lineSeparator() + "4 : Поиск заявки по имени.")
-                .append(System.lineSeparator() + "5 : Замена заявки.")
-                .append(System.lineSeparator() + "6 : Выход")
-                .append(System.lineSeparator() + "------------ Все заявки : --------------");
+        result.append("0 : Добавление новой заявки.").append(System.lineSeparator()).append("1 : Вывод всех заявок.").append(System.lineSeparator()).append("2 : Удаление заявки.").append(System.lineSeparator()).append("3 : Поиск заявки по идентификатору.").append(System.lineSeparator()).append("4 : Поиск заявки по имени.").append(System.lineSeparator()).append("5 : Замена заявки.").append(System.lineSeparator()).append("6 : Выход").append(System.lineSeparator()).append("------------ Все заявки : --------------");
         for (Item item : this.tracker.findAll()) {
-            result.append(System.lineSeparator() + item.getId() + " "
-                    + item.getName() + " "
-                    + item.getDecs()
-            );
+            result.append(System.lineSeparator()).append(item.getId()).append(" ").append(item.getName()).append(" ").append(item.getDecs());
         }
-        result.append(System.lineSeparator() + "0 : Добавление новой заявки.")
-                .append(System.lineSeparator() + "1 : Вывод всех заявок.")
-                .append(System.lineSeparator() + "2 : Удаление заявки.")
-                .append(System.lineSeparator() + "3 : Поиск заявки по идентификатору.")
-                .append(System.lineSeparator() + "4 : Поиск заявки по имени.")
-                .append(System.lineSeparator() + "5 : Замена заявки.")
-                .append(System.lineSeparator() + "6 : Выход")
-                .append(System.lineSeparator() + "Exit")
+        result.append(System.lineSeparator()).append("0 : Добавление новой заявки.").append(System.lineSeparator()).append("1 : Вывод всех заявок.").append(System.lineSeparator()).append("2 : Удаление заявки.").append(System.lineSeparator()).append("3 : Поиск заявки по идентификатору.").append(System.lineSeparator()).append("4 : Поиск заявки по имени.").append(System.lineSeparator()).append("5 : Замена заявки.").append(System.lineSeparator()).append("6 : Выход").append(System.lineSeparator()).append("Exit")
                 .append(System.lineSeparator());
         new StartUI(input, tracker).init();
         assertThat(new String(out.toByteArray()), is(result.toString()));

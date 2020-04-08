@@ -3,10 +3,10 @@ package ru.job4j.array;
  * Обертка над строкой.
  * @author Anton Narayan
  */
-public class ArrayChar {
+class ArrayChar {
     private char[] data;
 
-    public ArrayChar(String line) {
+    ArrayChar(String line) {
         this.data = line.toCharArray();
     }
     /**
@@ -15,7 +15,7 @@ public class ArrayChar {
      * @param prefix префикс.
      * @return если слово начинается с префикса
      */
-    public boolean startWith(String prefix) {
+    boolean startWith(String prefix) {
         boolean result = true;
         char[] value = prefix.toCharArray();
         for (int index = 0; index != value.length; index++) {

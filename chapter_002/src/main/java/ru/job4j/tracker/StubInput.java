@@ -8,7 +8,7 @@ public class StubInput implements Input {
 
     private int position = 0;
 
-    public StubInput(final ArrayList value) {
+    StubInput(final ArrayList<String> value) {
         this.value = value;
     }
 

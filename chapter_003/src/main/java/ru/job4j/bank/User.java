@@ -6,6 +6,7 @@ import java.util.Objects;
  * Класс пользователя банка
  * @author Anton
  * @version 0.1
+ * @noinspection ALL, SameParameterValue
  */
 public class User {
     private String passport;
