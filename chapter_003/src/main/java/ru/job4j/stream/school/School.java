@@ -1,14 +1,10 @@
 package ru.job4j.stream.school;
 
-import ru.job4j.stream.ListFromTheMatrix;
-
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Predicate;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * School
@@ -29,8 +25,8 @@ class School {
 
     /**
      * Method dividing a class by points into groups
-     * @param students
-     * @param predict
+     * @param students students
+     * @param predict predict
      * @return Map<Student.surname, Students Student>
      */
     Map<String, Student> collectToMap(List<Student> students, Predicate<Student> predict) {
@@ -44,10 +40,9 @@ class School {
      * @return list of students
      */
     List<Student> levelOf(List<Student> students, int bound){
-        List<Student> result = students.stream()
+        return students.stream()
                 .sorted(Comparator.comparing(Student::getScore).reversed())
                 .takeWhile(student -> (student.score > bound))
                 .collect(Collectors.toList());
-        return result;
     }
 }

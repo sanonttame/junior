@@ -7,13 +7,13 @@ import java.util.*;
  * @version 0.1
  * @since 0.1
  */
-public class ConvertList {
+class ConvertList {
     /**
      * Method converts all list arrays to a list.
      * @param list list with arrays
      * @return list with elements of arrays
      */
-    public static List<Integer> convert(List<int[]> list) {
+    static List<Integer> convert(List<int[]> list) {
         List<Integer> rsl = new ArrayList<>();
         for (int[] array: list) {
             for (int cell : array) {

@@ -18,16 +18,16 @@ public class FunctionDiapasonTest{
         }
        @Test
     public void whenFuncLog() {
-           FunctionDiapason function = new FunctionDiapason();
-       List<Double> result = function.diapason(5,8, Math::log);
+        FunctionDiapason function = new FunctionDiapason();
+       List<Double> result = function.diapason(5, 8, Math::log);
        List<Double> expected = Arrays.asList(Math.log(5), Math.log(6), Math.log(7));
        assertThat(result, is(expected));
        }
         @Test
-        public void whenFuncQadr(){
+        public void whenFuncQadr() {
             FunctionDiapason function = new FunctionDiapason();
-            List<Double> result = function.diapason(5,8,x->Math.pow(x,2));
-            List<Double> expected = Arrays.asList(Math.pow(5, 2), Math.pow(6 , 2), Math.pow(7, 2));
+            List<Double> result = function.diapason(5, 8, x->Math.pow(x, 2));
+            List<Double> expected = Arrays.asList(Math.pow(5, 2), Math.pow(6, 2), Math.pow(7, 2));
             assertThat(result, is(expected));
         }
 }

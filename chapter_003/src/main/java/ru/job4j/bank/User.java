@@ -35,8 +35,12 @@ public class User {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || obj.getClass() != getClass()) return false;
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || obj.getClass() != getClass()) {
+            return false;
+        }
         User user = (User) obj;
         return Objects.equals(user.passport, ((User) obj).passport);
     }

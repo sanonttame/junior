@@ -11,10 +11,10 @@ import static org.junit.Assert.*;
  */
 public class ListFromTheMatrixTest {
     @Test
-    public void whenMatrixtoList() {
-        Integer[][] array = {{1, 2},{3, 4}};
+    public void whenMatrixToList() {
+        Integer[][] array = {{1, 2}, {3, 4}};
         List<Integer> expected = List.of(1, 2, 3, 4);
         ListFromTheMatrix list = new ListFromTheMatrix();
-        assertThat(list.listFromTheMatrix(array),is(expected));
+        assertThat(list.listFromTheMatrix(array), is(expected));
     }
 }

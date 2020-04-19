@@ -2,13 +2,13 @@ package ru.job4j.collection;
 
 import java.util.*;
 
-public class Departments{
+public class Departments {
 
-    public static List<String> fillGaps(List<String> deps) {
+    static List<String> fillGaps(List<String> deps) {
         HashSet<String> tmp = new HashSet<>();
         for (String value : deps) {
             String start = "";
-            for(String e : value.split("/")) {
+            for (String e : value.split("/")) {
                 tmp.add(start + e);
                 start = e + "/";
             }
@@ -18,7 +18,7 @@ public class Departments{
         return result;
     }
 
-    public static void sortAsc(List<String> orgs) {
+    private static void sortAsc(List<String> orgs) {
         Collections.sort(orgs);
     }
 

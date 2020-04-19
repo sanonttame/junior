@@ -40,7 +40,6 @@
         <!--<module name="LineLength"/>-->
         <module name="MethodLength"/>
         <module name="ParameterNumber"/>
-
         <!-- Checks for whitespace                               -->
         <!-- See http://checkstyle.sf.net/config_whitespace.html -->
         <module name="EmptyForIteratorPad"/>

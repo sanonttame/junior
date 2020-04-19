@@ -1,4 +1,4 @@
-package ru.job4j.stream.listOfAddress;
+package ru.job4j.stream.listofaddress;
 
 import java.util.Objects;
 
@@ -8,7 +8,7 @@ import java.util.Objects;
  * @since 0.1
  * @author Anton Tsyoma
  */
-class Address implements Comparable<Address>{
+class Address implements Comparable<Address> {
     Address(String city, String street, int home, int apartment) {
         this.city = city;
         this.street = street;
@@ -29,26 +29,19 @@ class Address implements Comparable<Address>{
 
     @Override
     public boolean equals(Object obj) {
-       if(this == obj) {
+       if (this == obj) {
            return true;
        }
        if (obj == null && getClass() != obj.getClass()) {
            return false;
        }
        Address address = (Address) obj;
-       return Objects.equals(city, address.city) &&
-               Objects.equals(street, address.street) &&
-               Objects.equals(home, address.home) &&
-               Objects.equals(apartment, address.apartment);
+       return Objects.equals(city, address.city) && Objects.equals(street, address.street) && Objects.equals(home, address.home) && Objects.equals(apartment, address.apartment);
     }
 
     @Override
     public String toString() {
-        return "\n" + "Address: " + "\n" +
-                "city - " + city + "\n" +
-                "street - " + street + "\n" +
-                "home - " + home + "\n" +
-                "apartment - " + apartment;
+        return "\n" + "Address: " + "\n" + "city - " + city + "\n" + "street - " + street + "\n" + "home - " + home + "\n" + "apartment - " + apartment;
     }
 
     @Override

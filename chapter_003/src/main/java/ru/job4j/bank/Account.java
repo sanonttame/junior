@@ -8,19 +8,28 @@ import java.util.Objects;
  * @author Anton
  * @since 02.03.2020
  */
-public class Account {
+class Account {
+    /**
+     * Requisite.
+     */
     private String requisite;
+    /**
+     * Balance.
+     */
     private double balance;
-
-    Account(String requisite, double balance) {
+    /**
+     * Construct.
+     * @param requisite requisite
+     * @param balance balance
+     */
+    Account(final String requisite, final double balance) {
         this.requisite = requisite;
         this.balance = balance;
     }
-    public void setRequisite(String requisite) {
-        this.requisite = requisite;
-    }
-    String getRequisite(){
+
+    String getRequisite() {
         return requisite;
+
     }
 
     private void setBalance(double balance) {
@@ -33,8 +42,12 @@ public class Account {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
         Account account = (Account) obj;
         return Objects.equals(account, obj);
     }

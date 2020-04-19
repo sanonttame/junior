@@ -73,10 +73,10 @@ class BankService {
          * @return прошел перевод или нет
          */
         boolean transferMoney(String srcPassport, String srcRequisites, String destPassport, String destRequisites,
-                              double amount){
+                              double amount) {
             Account src = findByRequisite(srcRequisites, srcPassport);
             Account dest = findByRequisite(destRequisites, destPassport);
-            return src.transfer(src,dest,amount);
+            return src.transfer(src, dest, amount);
         }
 
 }

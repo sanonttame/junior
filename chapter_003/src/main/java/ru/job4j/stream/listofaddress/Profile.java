@@ -1,4 +1,4 @@
-package ru.job4j.stream.listOfAddress;
+package ru.job4j.stream.listofaddress;
 
 /**
  * class Profile

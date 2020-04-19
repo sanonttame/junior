@@ -8,10 +8,9 @@ import java.util.stream.Collectors;
  * @since 0.1
  * @author Anton Tsyoma
  */
-public class ListFromTheMatrix {
+class ListFromTheMatrix {
     /**
      * Method converts a matrix to a list
-     * @version 0.1
      * @param  array array
      * @return  list
      */
