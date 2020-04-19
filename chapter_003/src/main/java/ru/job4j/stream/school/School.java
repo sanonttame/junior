@@ -1,16 +1,20 @@
 package ru.job4j.stream.school;
 
+import ru.job4j.stream.ListFromTheMatrix;
+
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Predicate;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * School
  * @author Anton Tsema
  * @since 0.1
- * @version 0.2
+ * @version 0.3
  */
 class School {
     /**
@@ -31,5 +35,19 @@ class School {
      */
     Map<String, Student> collectToMap(List<Student> students, Predicate<Student> predict) {
         return students.stream().filter(predict).collect(Collectors.toMap(Student::getSurname, Student->Student));
+    }
+
+    /**
+     * students who passed the exam
+     * @param students students
+     * @param bound lvl
+     * @return list of students
+     */
+    List<Student> levelOf(List<Student> students, int bound){
+        List<Student> result = students.stream()
+                .sorted(Comparator.comparing(Student::getScore).reversed())
+                .takeWhile(student -> (student.score > bound))
+                .collect(Collectors.toList());
+        return result;
     }
 }

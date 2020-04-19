@@ -1,11 +1,13 @@
 package ru.job4j.stream.school;
 
+import java.util.Comparator;
+
 /**
  * @version 0.1
  * @since 0.2
  * @author Anton Tsema
  */
-public class Student {
+public class Student{
     String surname;
     int score;
 
@@ -18,5 +20,9 @@ public class Student {
         return surname;
     }
 
-
+    public int getScore() {
+        return score;
+    }
 }
+
+

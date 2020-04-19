@@ -12,11 +12,11 @@ public class Account {
     private String requisite;
     private double balance;
 
-    Account(String requisite, double balance){
+    Account(String requisite, double balance) {
         this.requisite = requisite;
         this.balance = balance;
     }
-    public void setRequisite(String requisite){
+    public void setRequisite(String requisite) {
         this.requisite = requisite;
     }
     String getRequisite(){
