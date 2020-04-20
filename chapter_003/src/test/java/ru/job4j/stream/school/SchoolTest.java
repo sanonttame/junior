@@ -26,7 +26,7 @@ public class SchoolTest {
     private School school = new School();
     @Test
     public void studentsA() {
-        List<Student> result = school.collect(students,student->(student.score >= 70 && student.score < 100));
+        List<Student> result = school.collect(students, student -> (student.score >= 70 && student.score < 100));
         List<Student> expect = List.of(five, six, seven);
         assertThat(result, is(expect));
     }

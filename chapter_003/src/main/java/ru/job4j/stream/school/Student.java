@@ -5,7 +5,7 @@ package ru.job4j.stream.school;
  * @since 0.2
  * @author Anton Tsema
  */
-class Student{
+class Student {
     String surname;
     int score;
 

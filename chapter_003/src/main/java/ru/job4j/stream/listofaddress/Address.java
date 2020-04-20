@@ -13,7 +13,7 @@ class Address implements Comparable<Address> {
         this.city = city;
         this.street = street;
         this.home = home;
-        this.apartment= apartment;
+        this.apartment = apartment;
     }
     private String city;
     private String street;

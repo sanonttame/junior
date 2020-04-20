@@ -39,7 +39,7 @@ class School {
      * @param bound lvl
      * @return list of students
      */
-    List<Student> levelOf(List<Student> students, int bound){
+    List<Student> levelOf(List<Student> students, int bound) {
         return students.stream()
                 .sorted(Comparator.comparing(Student::getScore).reversed())
                 .takeWhile(student -> (student.score > bound))
