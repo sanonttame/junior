@@ -24,6 +24,6 @@ public class GroupTest {
                 "Pol", Set.of("golf", "music"));
 
 
-        assertThat(Group.sections(students),is(expected));
+        assertThat(Group.sections(students), is(expected));
     }
 }
