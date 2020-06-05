@@ -10,15 +10,10 @@ class Group {
     static Map<String, Set<String>> sections(List<Student> students) {
         return students
                 .stream()
-                .flatMap(student -> {
-                    List<Holder> holders = new ArrayList<>();
-                    Stream.of(student.getUnits())
-                            .flatMap(units -> units.stream())
-                            .forEach(units -> holders.add(new Holder(student.getName(), units)));
-                   return holders.stream();
-                }
+                .flatMap(student ->student.getUnits()
+                        .stream()
+                        .map(unit -> new Holder(student.getName(), unit))
                 )
-
                 .collect(Collectors.groupingBy(t -> t.key, Collector.of(
                         HashSet::new,
                         (set, el) -> set.add(el.value),
